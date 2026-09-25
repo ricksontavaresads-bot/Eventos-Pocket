@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eventos Pocket com Ativação de Fim de Semana · Eco Digital</title>
+<style>
+  :root{
+    --bg:#F6F8F6;
+    --tinta:#1D2B24;
+    --cinza:#5C6B63;
+    --verde-900:#24362C;
+    --verde-800:#2E4538;
+    --verde-700:#37563F;
+    --verde-500:#4E7A5D;
+    --verde-300:#9DBBA8;
+    --verde-100:#E4EEE7;
+    --verde-50:#F0F5F1;
+    --branco:#FFFFFF;
+    --borda:#DCE6DF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    background:var(--bg);
+    color:var(--tinta);
+    line-height:1.6;
+    font-size:16px;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px;}
+
+  /* ===== HERO ===== */
+  .hero{
+    background:linear-gradient(160deg,var(--verde-900) 0%,var(--verde-800) 60%,var(--verde-700) 100%);
+    color:#fff;
+    padding:56px 0 48px;
+  }
+  .hero .wrap{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;}
+  .hero-txt{max-width:720px;}
+  .eyebrow{
+    font-size:12px;letter-spacing:3px;text-transform:uppercase;
+    color:var(--verde-300);font-weight:600;margin-bottom:14px;
+  }
+  .hero h1{font-size:42px;line-height:1.15;font-weight:800;letter-spacing:-0.5px;}
+  .hero .sub{font-size:17px;color:#D5E3DA;margin-top:14px;max-width:560px;}
+  .pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;}
+  .pill{
+    background:rgba(255,255,255,0.10);
+    border:1px solid rgba(255,255,255,0.22);
+    color:#fff;padding:8px 16px;border-radius:999px;font-size:14px;font-weight:600;
+  }
+  .logo-hero{
+    width:108px;height:108px;border-radius:24px;
+    box-shadow:0 12px 32px rgba(0,0,0,0.35);
+    border:2px solid rgba(255,255,255,0.18);
+  }
+
+  /* ===== SEÇÕES ===== */
+  section{padding:52px 0 8px;}
+  .sec-head{margin-bottom:26px;}
+  .sec-num{
+    display:inline-block;font-size:12px;font-weight:700;letter-spacing:2.5px;
+    text-transform:uppercase;color:var(--verde-500);
+    border:1px solid var(--verde-500);border-radius:999px;padding:5px 14px;margin-bottom:12px;
+  }
+  .sec-head h2{font-size:28px;font-weight:800;letter-spacing:-0.3px;}
+  .sec-head p{color:var(--cinza);margin-top:8px;max-width:720px;font-size:16px;}
+
+  .card{
+    background:var(--branco);border:1px solid var(--borda);
+    border-radius:18px;padding:22px;box-shadow:0 2px 10px rgba(29,43,36,0.05);
+  }
+
+  /* grid de mini cards */
+  .grid{display:grid;gap:16px;}
+  .g2{grid-template-columns:repeat(2,1fr);}
+  .g3{grid-template-columns:repeat(3,1fr);}
+  .g4{grid-template-columns:repeat(4,1fr);}
+  @media(max-width:860px){.g2,.g3,.g4{grid-template-columns:1fr;}}
+
+  .mini .tit{font-weight:700;font-size:16px;margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+  .mini .dot{width:9px;height:9px;border-radius:50%;background:var(--verde-500);flex:none;}
+  .mini p{font-size:14.5px;color:var(--cinza);}
+
+  /* cards de ideias */
+  .ideia{display:flex;flex-direction:column;gap:8px;}
+  .ideia .nome{font-weight:800;font-size:17px;color:var(--verde-800);}
+  .ideia .desc{font-size:14px;color:var(--cinza);}
+  .ideia .tag{
+    align-self:flex-start;font-size:11.5px;font-weight:700;letter-spacing:1px;
+    text-transform:uppercase;color:var(--verde-700);
+    background:var(--verde-50);border:1px solid var(--verde-100);
+    padding:4px 10px;border-radius:999px;
+  }
+
+  /* ===== VÍDEO + ESTRUTURA ===== */
+  .duo{display:grid;grid-template-columns:360px 1fr;gap:28px;align-items:start;}
+  @media(max-width:860px){.duo{grid-template-columns:1fr;}}
+  .video-card{padding:14px;}
+  .video-card video{width:100%;border-radius:14px;display:block;background:#000;aspect-ratio:9/16;object-fit:cover;}
+  .video-legend{font-size:13px;color:var(--cinza);margin-top:12px;text-align:center;}
+  .video-legend b{color:var(--verde-800);}
+  .passos{display:flex;flex-direction:column;gap:12px;}
+  .passo{
+    display:flex;gap:14px;background:var(--branco);border:1px solid var(--borda);
+    border-radius:16px;padding:16px 18px;box-shadow:0 2px 10px rgba(29,43,36,0.05);
+  }
+  .passo .n{
+    flex:none;width:30px;height:30px;border-radius:50%;background:var(--verde-700);color:#fff;
+    font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;margin-top:2px;
+  }
+  .passo .t{font-size:15px;}
+  .passo .t b{color:var(--verde-800);}
+  .passo .t .ex{
+    display:block;margin-top:5px;font-size:13.5px;color:var(--verde-700);
+    background:var(--verde-50);border-left:3px solid var(--verde-500);
+    padding:8px 12px;border-radius:0 10px 10px 0;
+  }
+
+  /* trechos */
+  .trechos{display:grid;gap:12px;margin-top:22px;}
+  .trecho{
+    background:var(--verde-50);border:1px solid var(--verde-100);
+    border-radius:14px;padding:16px 20px;font-size:15.5px;font-style:italic;color:var(--verde-800);
+    position:relative;
+  }
+  .trecho::before{
+    content:"“";position:absolute;top:2px;left:10px;font-size:40px;color:var(--verde-300);
+    font-style:normal;line-height:1;
+  }
+  .trecho span{display:block;padding-left:22px;}
+  .trecho-label{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cinza);margin-top:22px;}
+
+  /* roteiro */
+  .roteiro{
+    background:var(--verde-900);color:#EAF2EC;border-radius:20px;padding:30px 32px;
+    font-size:16.5px;line-height:1.85;box-shadow:0 10px 30px rgba(29,43,36,0.18);
+  }
+  .roteiro .tag-r{
+    display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    color:var(--verde-300);margin-bottom:14px;
+  }
+  .roteiro mark{
+    background:var(--verde-500);color:#fff;border-radius:6px;padding:1px 8px;font-weight:600;
+  }
+
+  /* checklist */
+  .checklist{display:grid;gap:12px;}
+  .check{
+    display:flex;gap:14px;align-items:flex-start;background:var(--branco);
+    border:1px solid var(--borda);border-radius:14px;padding:16px 18px;
+    box-shadow:0 2px 10px rgba(29,43,36,0.05);
+  }
+  .check .ck{
+    flex:none;width:24px;height:24px;border-radius:8px;background:var(--verde-100);
+    display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--verde-700);font-size:14px;
+  }
+  .check p{font-size:15px;}
+  .check b{color:var(--verde-800);}
+
+  /* tabela */
+  .tabela{margin-top:26px;overflow-x:auto;}
+  table{width:100%;border-collapse:collapse;background:var(--branco);border-radius:16px;overflow:hidden;}
+  th{
+    background:var(--verde-800);color:#fff;text-align:left;font-size:13px;
+    letter-spacing:1px;text-transform:uppercase;padding:13px 16px;
+  }
+  td{padding:14px 16px;font-size:14.5px;border-top:1px solid var(--borda);vertical-align:top;}
+  td b{color:var(--verde-800);}
+  td:nth-child(2){color:var(--cinza);}
+
+  footer{
+    margin-top:56px;background:var(--verde-900);color:var(--verde-300);
+    padding:26px 0;text-align:center;font-size:13.5px;letter-spacing:0.5px;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-txt">
+      <div class="eyebrow">Eco Digital · Documento Exemplo</div>
+      <h1>Eventos Pocket com Ativação de Fim de Semana</h1>
+      <p class="sub">Como criar picos de atenção e venda nos finais de semana, entre os grandes eventos do mês, com chamadas diretas e produtos chamariz.</p>
+      <div class="pills">
+        <span class="pill">48h de Ofertas</span>
+        <span class="pill">3 Dias de Ofertas</span>
+        <span class="pill">Fim de Semana Premiado</span>
+        <span class="pill">Virada de Ofertas</span>
+        <span class="pill">Fecha Mês de Ofertas</span>
+      </div>
+    </div>
+    <img class="logo-hero" src="data:image/png;base64,__LOGO_B64__" alt="Eco Digital">
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- 01 -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>O que é um evento pocket</h2>
+      <p>Ação comercial curta e intensa, com começo e fim claros, usada para gerar picos de venda entre os eventos principais do mês. A ativação preferencial é o fim de semana, momento de maior fluxo de loja e disposição para comprar.</p>
+    </div>
+    <div class="grid g4">
+      <div class="card mini">
+        <div class="tit"><span class="dot"></span>Pico de atenção</div>
+        <p>Comunicação mais agressiva que a campanha principal, com chamadas fortes e diretas.</p>
+      </div>
+      <div class="card mini">
+        <div class="tit"><span class="dot"></span>Produtos chamariz</div>
+        <p>Itens boi de piranha atraem fluxo para a loja e abrem espaço para venda cruzada.</p>
+      </div>
+      <div class="card mini">
+        <div class="tit"><span class="dot"></span>Começo e fim claros</div>
+        <p>Ação delimitada, sem necessariamente limitar a oferta a 24 horas.</p>
+      </div>
+      <div class="card mini">
+        <div class="tit"><span class="dot"></span>Fim de semana</div>
+        <p>O momento natural de ativação, de preferência ancorado no sábado, com data exata.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2>Ideias de eventos pocket</h2>
+      <p>Formatos testados ao longo dos planejamentos da Eco Digital. Todos funcionam como ativação de fim de semana: basta ancorar a data e reforçar a condição.</p>
+    </div>
+    <div class="grid g4">
+      <div class="card ideia">
+        <div class="nome">48h de Ofertas</div>
+        <div class="desc">Intensidade máxima em dois dias, comunicação urgente e produtos com preço de impacto.</div>
+        <span class="tag">sábado a domingo</span>
+      </div>
+      <div class="card ideia">
+        <div class="nome">3 Dias de Ofertas</div>
+        <div class="desc">Versão mais ampla, com mais tempo de exposição para a oferta girar.</div>
+        <span class="tag">dias seguidos</span>
+      </div>
+      <div class="card ideia">
+        <div class="nome">Final de Semana de Ofertas</div>
+        <div class="desc">Sábado e domingo como protagonistas, com destaque total para a ação.</div>
+        <span class="tag">sábado e domingo</span>
+      </div>
+      <div class="card ideia">
+        <div class="nome">Final de Semana Especial</div>
+        <div class="desc">Variação do final de semana de ofertas, com condição ou recorte exclusivo.</div>
+        <span class="tag">sábado e domingo</span>
+      </div>
+      <div class="card ideia">
+        <div class="nome">Fim de Semana Premiado</div>
+        <div class="desc">A oferta ganha condição extra: brinde, sorteio ou cupom para os compradores.</div>
+        <span class="tag">sábado e domingo</span>
+      </div>
+      <div class="card ideia">
+        <div class="nome">Virada de Ofertas</div>
+        <div class="desc">Transição de condições para renovar o interesse e trazer quem ainda não comprou.</div>
+        <span class="tag">troca de condições</span>
+      </div>
+      <div class="card ideia">
+        <div class="nome">Feirão Relâmpago</div>
+        <div class="desc">Estilo feirão, agilidade e volume, com muitos produtos expostos de uma vez.</div>
+        <span class="tag">um dia só</span>
+      </div>
+      <div class="card ideia">
+        <div class="nome">Fecha Mês de Ofertas</div>
+        <div class="desc">Pressão de fechamento de meta nos últimos dias do mês, clima de última chance.</div>
+        <span class="tag">últimos dias do mês</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2>Como fazer a chamada do evento</h2>
+      <p>O modelo de referência é o vídeo abaixo: uma chamada de sábado que encerra a Semana do Cliente com data exata, sequência de produtos chamariz e preço falado o tempo todo.</p>
+    </div>
+    <div class="duo">
+      <div class="card video-card">
+        <video controls playsinline preload="metadata" src="data:video/mp4;base64,__JAELE_B64__"></video>
+        <div class="video-legend"><b>Chamada de sábado</b><br>Encerramento da Semana do Cliente · 77s</div>
+      </div>
+      <div class="passos">
+        <div class="passo">
+          <div class="n">1</div>
+          <div class="t"><b>Abra com a data e o motivo.</b> O vídeo já começa situando o público: é sábado, é o encerramento da semana e os preços são imbatíveis.
+            <span class="ex">"Nesse sábado, pra finalizar a semana do cliente, eu vou fazer preços imbatíveis pra você aproveitar."</span>
+          </div>
+        </div>
+        <div class="passo">
+          <div class="n">2</div>
+          <div class="t"><b>Produto chamariz logo no início.</b> O primeiro item aparece com preço na fala, sem enrolação.
+            <span class="ex">"Começando por esse scooter elétrico, por apenas R$ 3.999."</span>
+          </div>
+        </div>
+        <div class="passo">
+          <div class="n">3</div>
+          <div class="t"><b>Âncora de preço repetida.</b> "Menor preço do Brasil" vira padrão de fala e dá credibilidade à oferta.
+          </div>
+        </div>
+        <div class="passo">
+          <div class="n">4</div>
+          <div class="t"><b>Repita a data em todo o vídeo.</b> "Somente esse sábado, dia 19" aparece várias vezes: a data exata é o que ancora a urgência, sem contagem regressiva artificial.
+          </div>
+        </div>
+        <div class="passo">
+          <div class="n">5</div>
+          <div class="t"><b>Estoque limitado acelera a decisão.</b> A escassez aparece como informação real, ligada ao produto, não como alarme vazio.
+            <span class="ex">"Roupeiro com o menor preço do Brasil: R$ 1.799. Mas o estoque é limitadíssimo."</span>
+          </div>
+        </div>
+        <div class="passo">
+          <div class="n">6</div>
+          <div class="t"><b>Cite as lojas participantes pelo nome.</b> Quem assiste precisa saber onde encontrar a oferta.
+            <span class="ex">"Disponível nas lojas de Nova Friburgo e também nas lojas de Montenegro."</span>
+          </div>
+        </div>
+        <div class="passo">
+          <div class="n">7</div>
+          <div class="t"><b>Feche com o produto mais forte.</b> O último item é o de maior impacto visual, com preço final memorável.
+            <span class="ex">"Olha só, com 6 portas, esse super detalhe ripado: uma loucura. Somente sábado, por R$ 1.999."</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trecho-label">Trechos da chamada · transcrição adaptada</div>
+    <div class="trechos">
+      <div class="trecho"><span>Nesse sábado, pra finalizar a semana do cliente, eu vou fazer preços imbatíveis pra você aproveitar. Mas é somente esse sábado.</span></div>
+      <div class="trecho"><span>Roupeiro com o menor preço do Brasil: R$ 1.799. Mas o estoque é limitadíssimo e é somente esse sábado, dia 19.</span></div>
+      <div class="trecho"><span>Mesa com 100 cadeiras, disponível nas lojas de Nova Friburgo e também nas lojas de Montenegro. De R$ 2.300 por R$ 1.499, somente nesse sábado.</span></div>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2>Formato rápido focado em produto</h2>
+      <p>Para pockets de fim de semana com um produto herói, o vídeo pode ir direto ao ponto: especificação, preço, parcelamento e CTA em 14 segundos. O modelo de referência é o vídeo exemplo Tradição.</p>
+    </div>
+    <div class="duo">
+      <div class="card video-card">
+        <video controls playsinline preload="metadata" src="data:video/mp4;base64,__TRADICAO_B64__"></video>
+        <div class="video-legend"><b>Vídeo exemplo Tradição</b><br>Formato produto · 14s</div>
+      </div>
+      <div class="passos">
+        <div class="passo">
+          <div class="n">1</div>
+          <div class="t"><b>Nome do evento na abertura.</b> O pocket é citado logo no início e dá contexto à condição. Na abertura original do vídeo, o nome é o evento da loja: troque pelo nome do seu pocket.
+            <span class="ex">"E só aqui, no [Nome do Evento]..."</span>
+          </div>
+        </div>
+        <div class="passo">
+          <div class="n">2</div>
+          <div class="t"><b>Produto com especificação completa.</b> Nome, medida, acabamento e material: tudo o que importa na decisão, em uma frase.
+            <span class="ex">"...você leva o sofá Delta medindo 2,30, retrátil e reclinável, no suede velutado..."</span>
+          </div>
+        </div>
+        <div class="passo">
+          <div class="n">3</div>
+          <div class="t"><b>Preço e parcelamento juntos.</b> A condição aparece inteira: preço à vista e divisão em parcelas.
+            <span class="ex">"...por R$ 1.999, podendo dividir em 10x sem juros."</span>
+          </div>
+        </div>
+        <div class="passo">
+          <div class="n">4</div>
+          <div class="t"><b>CTA curto e direto.</b> O fechamento convida para a ação sem rodeio.
+            <span class="ex">"Vem adquirir!"</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trecho-label">Trecho completo · transcrição adaptada</div>
+    <div class="trechos">
+      <div class="trecho"><span>E só aqui, no [Nome do Evento], você leva o sofá Delta medindo 2,30, retrátil e reclinável, no suede velutado, por R$ 1.999, podendo dividir em 10x sem juros. Vem adquirir!</span></div>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2>Roteiro exemplo pronto para usar</h2>
+      <p>Estrutura baseada no modelo de chamada, com espaços para preencher. Troque os valores entre colchetes pelos dados da loja e do evento.</p>
+    </div>
+    <div class="roteiro">
+      <span class="tag-r">Roteiro · Chamada de sábado</span><br>
+      Neste sábado, dia <mark>[DD]</mark>, tem <mark>[Nome do Evento]</mark> na <mark>[Nome da Loja]</mark>. Pra você que quer <mark>[benefício]</mark>, eu preparei condições especiais, mas é somente este sábado.<br><br>
+      Começando por <mark>[produto chamariz 1]</mark>, por apenas <mark>[R$ preço]</mark>.<br>
+      E tem mais: <mark>[produto chamariz 2]</mark> com o menor preço do Brasil, <mark>[R$ preço]</mark>. Estoque limitado.<br><br>
+      É somente neste sábado, dia <mark>[DD]</mark>, nas lojas <mark>[cidade 1]</mark> e <mark>[cidade 2]</mark>.<br><br>
+      E pra fechar, <mark>[produto herói]</mark>: de <mark>[R$ preço de]</mark> por <mark>[R$ preço por]</mark>. Corre que é só sábado!
+    </div>
+  </section>
+
+  <!-- 06 -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">06</span>
+      <h2>Checklist da comunicação</h2>
+      <p>Toda peça do pocket precisa responder estas cinco perguntas. Se alguma faltar, a chamada fica incompleta.</p>
+    </div>
+    <div class="checklist">
+      <div class="check"><div class="ck">✓</div><p><b>Qual é o evento:</b> nome do pocket na abertura, em toda peça.</p></div>
+      <div class="check"><div class="ck">✓</div><p><b>Quais produtos participam:</b> chamarizes primeiro, herói no fechamento.</p></div>
+      <div class="check"><div class="ck">✓</div><p><b>Qual é a condição:</b> preço falado e na tela, parcelamento quando houver.</p></div>
+      <div class="check"><div class="ck">✓</div><p><b>Quando acontece:</b> data exata, repetida ao longo do vídeo.</p></div>
+      <div class="check"><div class="ck">✓</div><p><b>Onde comprar:</b> lojas participantes pelo nome, chamada para WhatsApp ou Direct quando aplicável.</p></div>
+    </div>
+    <div class="tabela">
+      <table>
+        <tr>
+          <th>Momento</th>
+          <th>Formato</th>
+          <th>Produtos</th>
+          <th>Referência</th>
+        </tr>
+        <tr>
+          <td><b>Pocket de fim de semana</b> com vários destaques</td>
+          <td>Chamada de evento: data exata, sequência de chamarizes, âncora de preço</td>
+          <td>5 a 7 produtos</td>
+          <td>Vídeo exemplo · Chamada de sábado</td>
+        </tr>
+        <tr>
+          <td><b>Pocket de fim de semana</b> com um produto herói</td>
+          <td>Foco em produto: especificação, preço, parcelamento e CTA</td>
+          <td>1 produto</td>
+          <td>Vídeo exemplo Tradição</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Eco Digital · Gestão de Tráfego Pago para o Varejo · @ecodigitall
+</footer>
+
+</body>
+</html>
